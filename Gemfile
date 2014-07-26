@@ -1,8 +1,25 @@
 source 'https://rubygems.org'
 
+gem 'simple_form'
+
+gem 'jquery-turbolinks' # Resolve turbolinks mess with JQuery
+gem "jquery-ui-rails" # For date and hour picker in create appointment
+
+gem 'money-rails' # handles lib/money_attributes module
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'unicorn'
+gem 'yui-compressor'
+
+# Embed the V8 Javascript Interpreter into Ruby for LESS/Bootstrap
+gem "therubyracer"
+gem 'libv8'
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+gem 'font-awesome-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -10,7 +27,7 @@ gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -38,3 +55,36 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :test, :development do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'simplecov', '~> 0.8.0',  :require => false
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'shoulda'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+end
+
+group :cucumber do
+  gem 'capybara'           # better than webrat
+  gem 'database_cleaner'   # clean database between tests
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'factory_girl_rails'
+end
+
+gem 'rails_12factor', group: :production
